@@ -35,8 +35,8 @@ namespace MARSProject.SpecFlow
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "ProfileFeature", "As a Seller\r\nI want the feature to add my Profile Details\r\nSo that\r\nThe people se" +
-                    "eking for some skills can look into my details.", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "ProfileFeature", "As a I\r\nI want the feature to add my Profile Details\r\nSo that\r\nThe people seeking" +
+                    " for some skills can look into my details.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -79,10 +79,10 @@ namespace MARSProject.SpecFlow
 #line 8
 #line hidden
 #line 9
-   testRunner.Given("seller logged in to Mars portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+   testRunner.Given("I logged in to Mars portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
- testRunner.When("seller navigate to Profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I navigate to Profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
         }
         
@@ -97,7 +97,7 @@ namespace MARSProject.SpecFlow
             argumentsOfScenario.Add("Skills", skills);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC 1 Seller is able to add Skills details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 66
+#line 64
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -110,11 +110,236 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
 this.FeatureBackground();
 #line hidden
-#line 67
- testRunner.Given(string.Format("seller add new \'{0}\' and \'{1}\' on profile", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 65
+ testRunner.Given(string.Format("I add new \'{0}\' and \'{1}\' on profile", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 68
+#line 66
  testRunner.Then(string.Format("\'{0}\' and \'{1}\' should be added successfully", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("TC 2 Seller is able to edit Skills details.")]
+        [NUnit.Framework.TestCaseAttribute("Baking", "Expert", null)]
+        public void TC2SellerIsAbleToEditSkillsDetails_(string skills, string level, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Skills", skills);
+            argumentsOfScenario.Add("Level", level);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC 2 Seller is able to edit Skills details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 73
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 75
+ testRunner.Given(string.Format("I edit existing \'{0}\' and \'{1}\' on profile", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 76
+ testRunner.Then(string.Format("\'{0}\' and \'{1}\' should be updated successfully", skills, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("TC 3 Seller is able to delete Skills details.")]
+        public void TC3SellerIsAbleToDeleteSkillsDetails_()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC 3 Seller is able to delete Skills details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 82
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 83
+ testRunner.Given("I delete existing Skills", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 84
+ testRunner.Then("Skills should be deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("TC 4 Verify validation error for Skills tab")]
+        public void TC4VerifyValidationErrorForSkillsTab()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC 4 Verify validation error for Skills tab", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 87
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 88
+ testRunner.Given("I left Skills field as blank", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 89
+ testRunner.Then("error message should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("TC 5 Seller is able to add Education details.")]
+        [NUnit.Framework.TestCaseAttribute("AUT", "New Zealand", "B.Tech", "I.T", "2009", null)]
+        public void TC5SellerIsAbleToAddEducationDetails_(string collegeName, string country, string title, string degree, string year, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("CollegeName", collegeName);
+            argumentsOfScenario.Add("Country", country);
+            argumentsOfScenario.Add("Title", title);
+            argumentsOfScenario.Add("Degree", degree);
+            argumentsOfScenario.Add("Year", year);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC 5 Seller is able to add Education details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 91
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 93
+ testRunner.Given(string.Format("I add education as follows \'{0}\',\'{1}\',\'{2}\',\'{3}\' and \'{4}\'", collegeName, country, title, degree, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 94
+ testRunner.Then(string.Format("\'{0}\',\'{1}\',\'{2}\',\'{3}\' and \'{4}\'  details should be added successfully", collegeName, country, title, degree, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("TC 6 Seller is able to edit Education details.")]
+        [NUnit.Framework.TestCaseAttribute("JNTU", "India", "M.Tech", "I.T", "2012", null)]
+        public void TC6SellerIsAbleToEditEducationDetails_(string collegeName, string country, string title, string degree, string year, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("CollegeName", collegeName);
+            argumentsOfScenario.Add("Country", country);
+            argumentsOfScenario.Add("Title", title);
+            argumentsOfScenario.Add("Degree", degree);
+            argumentsOfScenario.Add("Year", year);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC 6 Seller is able to edit Education details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 100
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 102
+ testRunner.Given(string.Format("I edit existing education as follows \'{0}\',\'{1}\',\'{2}\',\'{3}\' and \'{4}\'", collegeName, country, title, degree, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 103
+ testRunner.Then(string.Format("\'{0}\',\'{1}\',\'{2}\',\'{3}\' and \'{4}\' details should be updated succesfully", collegeName, country, title, degree, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("TC 7 Seller is able to delete Education details.")]
+        public void TC7SellerIsAbleToDeleteEducationDetails_()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC 7 Seller is able to delete Education details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 109
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 110
+ testRunner.Given("I delete existing education details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 111
+ testRunner.Then("Education details should be deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("TC 8 Verify validation error for Education tab")]
+        public void TC8VerifyValidationErrorForEducationTab()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC 8 Verify validation error for Education tab", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 113
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 114
+ testRunner.Given("I left Education field as blank", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 115
+ testRunner.Then("Education error message should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
