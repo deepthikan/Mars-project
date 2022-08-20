@@ -6,7 +6,7 @@ using MARSProject.Utilities;
 
 namespace MARSProject.Pages
 {
-    public class SignInPage 
+    public class SignInandProfilePage 
     {
         public void signInActions(IWebDriver driver)
         {
