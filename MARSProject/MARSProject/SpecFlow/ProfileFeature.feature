@@ -1,6 +1,6 @@
 ﻿Feature: ProfileFeature
 
-As a I
+As a Seller
 I want the feature to add my Profile Details
 So that
 The people seeking for some skills can look into my details.
@@ -73,7 +73,7 @@ Scenario Outline:09 Seller is able to add the Certifications details.
 	| Istqb Foundation | ISTQB           | 2020 |
 	| Baking Basics    | Bake Goods      | 2019 |
 
-Scenario Outline:10 Verify seller is able to edit the Certifications details.
+Scenario Outline:10 seller is able to edit the Certifications details.
 	
 	Given I edit existing '<Certifications>','<CertificateFrom>' and '<Year>' to profile
 	Then '<Certifications>','<CertificateFrom>' and '<Year>' details should be updated successfully
@@ -82,7 +82,7 @@ Scenario Outline:10 Verify seller is able to edit the Certifications details.
 	| Certifications | CertificateFrom | Year |
 	| Istqb Advance  | ISTQB           | 2022 |
 
-Scenario:11 Verify Seller is able to delete Certifications details.
+Scenario:11 Seller is able to delete Certifications details.
 	Given I delete Certifications details
 	Then Certifications details should be deleted successfully
 

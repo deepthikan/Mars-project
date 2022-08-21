@@ -1,8 +1,4 @@
 ﻿using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium;
-
-
-
 
 namespace MARSProject.Utilities
 {

@@ -19,26 +19,26 @@ namespace MARSProject.StepDefinition
         public void GivenSellerLoggedInToMarsPortalSuccessfully()
         {
             driver = new ChromeDriver();
-            SignInandProfilePageObj.signInActions(driver);
+            SignInandProfilePageObj.signInActions();
 
         }
         [When(@"I navigate to Profile page")]
         public void WhenSellerNavigateToProfilePage()
         {
-            SignInandProfilePageObj.goToProfilePage(driver);
+            SignInandProfilePageObj.goToProfilePage();
         }
 
         [Given(@"I add new '([^']*)' and '([^']*)' on profile")]
         public void GivenSellerAddNewAndOnProfile(string p0, string p1)
         {
-            skillsObj.addNewSkills(driver, p0, p1);
+            skillsObj.addNewSkills(p0, p1);
         }
 
         [Then(@"'([^']*)' and '([^']*)' should be added successfully")]
         public void ThenAndShouldBeAddedSuccessfully(string p0, string p1)
         {
-            string newSkill = skillsObj.getSkillsTableDetails(driver);
-            string newLevel = skillsObj.getSkillsTableDetails(driver);
+            string newSkill = skillsObj.getSkillsTableDetails();
+            string newLevel = skillsObj.getSkillsTableDetails();
 
 
             Assert.That(newSkill.Contains(p0), "Actual skill and Expected skill do not match");
@@ -51,14 +51,14 @@ namespace MARSProject.StepDefinition
         [Given(@"I edit existing '([^']*)' and '([^']*)' on profile")]
         public void GivenSellerEditsExistingAndOnProfile(string p0, string p1)
         {
-            skillsObj.editSkills(driver, p0, p1);
+            skillsObj.editSkills( p0, p1);
         }
 
         [Then(@"'([^']*)' and '([^']*)' should be updated successfully")]
         public void ThenAndShouldBeUpdatedSuccessfully(string p0, string p1)
         {
-            string editSkill = skillsObj.getSkillsTableDetails(driver);
-            string editLevel = skillsObj.getSkillsTableDetails(driver);
+            string editSkill = skillsObj.getSkillsTableDetails();
+            string editLevel = skillsObj.getSkillsTableDetails();
 
 
             Assert.That(editSkill.Contains(p0), "Edited skill and Expected skill do not match");
@@ -69,13 +69,13 @@ namespace MARSProject.StepDefinition
         [Given(@"I delete existing Skills")]
         public void GivenSellerDeletesExistingSkills()
         {
-            skillsObj.deleteSkills(driver);
+            skillsObj.deleteSkills();
         }
 
         [Then(@"Skills should be deleted successfully")]
         public void ThenSkillsShouldBeDeletedSuccessfully()
         {
-            string deletedSkill = skillsObj.getSkillsTableDetails(driver);
+            string deletedSkill = skillsObj.getSkillsTableDetails();
 
             Assert.That(deletedSkill != "p0", "Deleted skill and Expected skill do not match");
 
@@ -85,13 +85,13 @@ namespace MARSProject.StepDefinition
         [Given(@"I left Skills field as blank")]
         public void GivenSellerLeftSkillsFieldAsBlank()
         {
-            skillsObj.validatingSkills(driver);
+            skillsObj.validatingSkills();
         }
 
         [Then(@"error message should be displayed")]
         public void ThenErrorMessageShouldBeDisplayed()
         {
-            string errorMessage = skillsObj.getErrorMessage(driver);
+            string errorMessage = skillsObj.getErrorMessage();
 
             Assert.That(errorMessage == "Please enter skill and experience level", "Actual message and Expected message do not match");
 
@@ -103,7 +103,7 @@ namespace MARSProject.StepDefinition
         [Given(@"I add education as follows '([^']*)','([^']*)','([^']*)','([^']*)' and '([^']*)'")]
         public void GivenSellerAddEducationAsFollowsAnd(string p0, string p1, string p2, string p3, string p4)
         {
-            educationObj.addEducation(driver, p0, p1, p2, p3, p4);
+            educationObj.addEducation(p0, p1, p2, p3, p4);
 
         }
 
@@ -111,11 +111,11 @@ namespace MARSProject.StepDefinition
         public void ThenAndDetailsShouldBeAddedSuccessfully(string p0, string p1, string p2, string p3, string p4)
         {
 
-            string addCollegeName = educationObj.getEducationTableDetails(driver);
-            string addCountry = educationObj.getEducationTableDetails(driver);
-            string addTitle = educationObj.getEducationTableDetails(driver);
-            string addDegree = educationObj.getEducationTableDetails(driver);
-            string addYear = educationObj.getEducationTableDetails(driver);
+            string addCollegeName = educationObj.getEducationTableDetails();
+            string addCountry = educationObj.getEducationTableDetails();
+            string addTitle = educationObj.getEducationTableDetails();
+            string addDegree = educationObj.getEducationTableDetails();
+            string addYear = educationObj.getEducationTableDetails();
 
             Assert.That(addCollegeName.Contains(p0), "Actual college name expected college name do not match");
             Assert.That(addCountry.Contains(p1), "Actual country expected country do not match");
@@ -129,17 +129,17 @@ namespace MARSProject.StepDefinition
         [Given(@"I edit existing education as follows '([^']*)','([^']*)','([^']*)','([^']*)' and '([^']*)'")]
         public void GivenIEditExistingEducationAsFollowsAnd(string p0, string p1, string p2, string p3, string p4)
         {
-            educationObj.editEducation(driver, p0, p1, p2, p3, p4);
+            educationObj.editEducation(p0, p1, p2, p3, p4);
         }
 
         [Then(@"'([^']*)','([^']*)','([^']*)','([^']*)' and '([^']*)' details should be updated succesfully")]
         public void ThenAndDetailsShouldBeUpdatedSuccesfully(string p0, string p1, string p2, string p3, string p4)
         {
-            string editCollegeName = educationObj.getEducationTableDetails(driver);
-            string editCountry = educationObj.getEducationTableDetails(driver);
-            string editTitle = educationObj.getEducationTableDetails(driver);
-            string editDegree = educationObj.getEducationTableDetails(driver);
-            string editYear = educationObj.getEducationTableDetails(driver);
+            string editCollegeName = educationObj.getEducationTableDetails();
+            string editCountry = educationObj.getEducationTableDetails();
+            string editTitle = educationObj.getEducationTableDetails();
+            string editDegree = educationObj.getEducationTableDetails();
+            string editYear = educationObj.getEducationTableDetails();
 
             Assert.That(editCollegeName.Contains(p0), "Edited college name expected college name do not match");
             Assert.That(editCountry.Contains(p1), "Edited country expected country do not match");
@@ -154,13 +154,13 @@ namespace MARSProject.StepDefinition
         [Given(@"I delete existing education details")]
         public void GivenIDeleteExistingEducationDetails()
         {
-            educationObj.deleteEducation(driver);
+            educationObj.deleteEducation();
         }
 
         [Then(@"Education details should be deleted successfully")]
         public void ThenEducationDetailsShouldBeDeletedSuccessfully()
         {
-            string deletedEducation = educationObj.getEducationTableDetails(driver);
+            string deletedEducation = educationObj.getEducationTableDetails();
 
             Assert.That(deletedEducation != "p0", "Deleted education and Expected education do not match");
 
@@ -171,13 +171,13 @@ namespace MARSProject.StepDefinition
         [Given(@"I left Education field as blank")]
         public void GivenILeftEducationFieldAsBlank()
         {
-            educationObj.validatingEducation(driver);
+            educationObj.validatingEducation();
         }
 
         [Then(@"Education error message should be displayed")]
         public void ThenEducationErrorMessageShouldBeDisplayed()
         {
-            string eduErrorMessage = educationObj.getEduErrorMessage(driver);
+            string eduErrorMessage = educationObj.getEduErrorMessage();
             Assert.That(eduErrorMessage == "Please enter all the fields", "Actual Eduerror message and Expected eduerror message do not match");
             driver.Quit();
 
@@ -186,16 +186,16 @@ namespace MARSProject.StepDefinition
         [Given(@"I add new '([^']*)','([^']*)' and '([^']*)' to profile")]
         public void GivenIAddNewAndToProfile(string p0, string p1, string p2)
         {
-            certificationsObj.addCertifications(driver, p0, p1, p2);
+            certificationsObj.addCertifications(p0, p1, p2);
         }
 
         [Then(@"The '([^']*)','([^']*)' and '([^']*)'details should be added successfully")]
         public void ThenTheAndDetailsShouldBeAddedSuccessfully(string p0, string p1, string p2)
         {
 
-            string addCertifications = certificationsObj.getCertificationsTableDetails(driver);
-            string addCertificationFrom = certificationsObj.getCertificationsTableDetails(driver);
-            string addYear = certificationsObj.getCertificationsTableDetails(driver);
+            string addCertifications = certificationsObj.getCertificationsTableDetails();
+            string addCertificationFrom = certificationsObj.getCertificationsTableDetails();
+            string addYear = certificationsObj.getCertificationsTableDetails();
 
 
             Assert.That(addCertifications.Contains(p0), "Actual Certifications and Expected Certifications do not match");
@@ -207,15 +207,15 @@ namespace MARSProject.StepDefinition
         [Given(@"I edit existing '([^']*)','([^']*)' and '([^']*)' to profile")]
         public void GivenIEditExistingAndToProfile(string p0, string p1, string p2)
         {
-            certificationsObj.editCertifications(driver, p0, p1, p2);
+            certificationsObj.editCertifications(p0, p1, p2);
         }
 
         [Then(@"'([^']*)','([^']*)' and '([^']*)' details should be updated successfully")]
         public void ThenAndDetailsShouldBeUpdatedSuccessfully(string p0, string p1, string p2)
         {
-            string editCertifications = certificationsObj.getCertificationsTableDetails(driver);
-            string editCertificationFrom = certificationsObj.getCertificationsTableDetails(driver);
-            string editYear = certificationsObj.getCertificationsTableDetails(driver);
+            string editCertifications = certificationsObj.getCertificationsTableDetails();
+            string editCertificationFrom = certificationsObj.getCertificationsTableDetails();
+            string editYear = certificationsObj.getCertificationsTableDetails();
 
 
             Assert.That(editCertifications.Contains(p0), "Edited Certifications and Expected Certifications do not match");
@@ -228,38 +228,34 @@ namespace MARSProject.StepDefinition
         [Given(@"I delete Certifications details")]
         public void GivenIDeleteCertificationsDetails()
         {
-            certificationsObj.deleteCertifications(driver);
+            certificationsObj.deleteCertifications();
         }
 
         [Then(@"Certifications details should be deleted successfully")]
         public void ThenCertificationsDetailsShouldBeDeletedSuccessfully()
         {
-            string deleteCertifications = certificationsObj.getCertificationsTableDetails(driver);
+            string deleteCertifications = certificationsObj.getCertificationsTableDetails();
 
             Assert.That(deleteCertifications != "p0", "Deleted certifications and Expected certifications do not match");
 
             driver.Quit();
-
         }
 
         [Given(@"I left Certifications field as blank")]
         public void GivenILeftCertificationsFieldAsBlank()
         {
-            certificationsObj.validatingCertifications(driver);
+            certificationsObj.validatingCertifications();
         }
 
         [Then(@"Following error message should be displayed")]
         public void ThenFollowingErrorMessageShouldBeDisplayed()
         {
-            string errorMessage = certificationsObj.getCertErrorMessage(driver);
+            string errorMessage = certificationsObj.getCertErrorMessage();
 
             Assert.That(errorMessage == "Please enter Certification Name, Certification From and Certification Year", "Actual message and Expected message do not match");
 
             driver.Quit();
-
         }
-
-
 
     }
 

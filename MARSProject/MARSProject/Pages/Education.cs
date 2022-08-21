@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Support.UI;
+﻿using MARSProject.Utilities;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MARSProject.Pages
 {
-    public class Education
+    public class Education : CommonDriver
     {
-        public void addEducation(IWebDriver driver, string CollegeName, string Country, string Title, string Degree, string Year)
+        public void addEducation(string CollegeName, string Country, string Title, string Degree, string Year)
         {
             //Identify education tab and click on it
             IWebElement educationTab = driver.FindElement(By.LinkText("Education"));
@@ -45,15 +46,13 @@ namespace MARSProject.Pages
             Thread.Sleep(4000);
         }
 
-        public string getEducationTableDetails(IWebDriver driver)
+        public string getEducationTableDetails()
         {
-            //Thread.Sleep(3000);
-            //WaitHelpers.WaitToBeClickable(driver, 10, "Name", "name");
             IWebElement newEducation = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]/table[1]"));
             return newEducation.GetAttribute("outerText").ToString();
         }
 
-        public void editEducation(IWebDriver driver, string CollegeName, string Country, string Title, string Degree, string Year)
+        public void editEducation(string CollegeName, string Country, string Title, string Degree, string Year)
         {
             //click education tab
             IWebElement educationTab = driver.FindElement(By.LinkText("Education"));
@@ -91,7 +90,7 @@ namespace MARSProject.Pages
             Thread.Sleep(4000);
         }
 
-        public void deleteEducation(IWebDriver driver)
+        public void deleteEducation()
         {
             //click education tab
             IWebElement educationTab = driver.FindElement(By.LinkText("Education"));
@@ -104,7 +103,7 @@ namespace MARSProject.Pages
 
         }
 
-        public void validatingEducation(IWebDriver driver)
+        public void validatingEducation()
         {
             //Go to education tab and click on it
             IWebElement educationTab = driver.FindElement(By.LinkText("Education"));
@@ -123,7 +122,7 @@ namespace MARSProject.Pages
             addButton.Click();
 
         }
-        public string getEduErrorMessage(IWebDriver driver)
+        public string getEduErrorMessage()
         {
             //verifying valid error message is displayed or not
             IWebElement validatingEduErrorMessage = driver.FindElement(By.XPath("//div[contains(text(),'Please enter all the fields')]"));

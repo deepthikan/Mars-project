@@ -6,9 +6,9 @@ using MARSProject.Utilities;
 
 namespace MARSProject.Pages
 {
-    public class SignInandProfilePage 
+    public class SignInandProfilePage: CommonDriver
     {
-        public void signInActions(IWebDriver driver)
+        public void signInActions()
         {
             //Launch Mars portal
             driver.Navigate().GoToUrl("http://192.168.1.190:5000/");
@@ -43,13 +43,12 @@ namespace MARSProject.Pages
                 Assert.Fail("Mars portal did not launch", ex.Message);
             }
         }
-        public void goToProfilePage(IWebDriver driver)
+        public void goToProfilePage()
         {
             // Go to homepage click on profile tab 
-            IWebElement ProfileTab = driver.FindElement(By.LinkText("Profile"));
-            ProfileTab.Click();
+            IWebElement profileTab = driver.FindElement(By.LinkText("Profile"));
+            profileTab.Click();
 
         }
-
     }
-    } 
+}

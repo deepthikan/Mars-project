@@ -35,8 +35,8 @@ namespace MARSProject.SpecFlow
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "ProfileFeature", "As a I\r\nI want the feature to add my Profile Details\r\nSo that\r\nThe people seeking" +
-                    " for some skills can look into my details.", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "ProfileFeature", "As a Seller\r\nI want the feature to add my Profile Details\r\nSo that\r\nThe people se" +
+                    "eking for some skills can look into my details.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -381,16 +381,16 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("10 Verify seller is able to edit the Certifications details.")]
+        [NUnit.Framework.DescriptionAttribute("10 seller is able to edit the Certifications details.")]
         [NUnit.Framework.TestCaseAttribute("Istqb Advance", "ISTQB", "2022", null)]
-        public void _10VerifySellerIsAbleToEditTheCertificationsDetails_(string certifications, string certificateFrom, string year, string[] exampleTags)
+        public void _10SellerIsAbleToEditTheCertificationsDetails_(string certifications, string certificateFrom, string year, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Certifications", certifications);
             argumentsOfScenario.Add("CertificateFrom", certificateFrom);
             argumentsOfScenario.Add("Year", year);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10 Verify seller is able to edit the Certifications details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10 seller is able to edit the Certifications details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 76
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -415,12 +415,12 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("11 Verify Seller is able to delete Certifications details.")]
-        public void _11VerifySellerIsAbleToDeleteCertificationsDetails_()
+        [NUnit.Framework.DescriptionAttribute("11 Seller is able to delete Certifications details.")]
+        public void _11SellerIsAbleToDeleteCertificationsDetails_()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("11 Verify Seller is able to delete Certifications details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("11 Seller is able to delete Certifications details.", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 85
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

@@ -1,6 +1,4 @@
-﻿
-
-namespace MARSProject.Utilities
+﻿namespace MARSProject.Utilities
 {
     public class CommonDriver
     {

@@ -1,15 +1,13 @@
 ﻿using MARSProject.Utilities;
 using OpenQA.Selenium.Support.UI;
-using System.Threading;
-using System.Xml.Linq;
 
 
 namespace MARSProject.Pages
 {
-    public class Skills
+    public class Skills : CommonDriver
     {
 
-        public void addNewSkills(IWebDriver driver, string Skills, string Level)
+        public void addNewSkills(string Skills, string Level)
         {
             //Identify skills tab and click on it
             IWebElement skillsTab = driver.FindElement(By.LinkText("Skills"));
@@ -32,15 +30,16 @@ namespace MARSProject.Pages
             addButton.Click();
 
         }
-        public string getSkillsTableDetails(IWebDriver driver)
+        public string getSkillsTableDetails()
         {
             Thread.Sleep(1500);
-            //WaitHelpers.WaitTobevisible(driver, 5, "XPath", "//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]");
+            
+            // Getting skill table details for assertion.
             IWebElement newSkills = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]"));
             return newSkills.GetAttribute("outerText").ToString();
         }
 
-        public void editSkills(IWebDriver driver, string Skills, string Level)
+        public void editSkills(string Skills, string Level)
         {
             //Go to skills tab and click on it
             IWebElement skillsTab = driver.FindElement(By.LinkText("Skills"));
@@ -51,9 +50,9 @@ namespace MARSProject.Pages
             editButton.Click();
 
             //edit skills textbox
-            IWebElement SkillTextbox = driver.FindElement(By.Name("name"));
-            SkillTextbox.Clear();
-            SkillTextbox.SendKeys(Skills);
+            IWebElement skillTextbox = driver.FindElement(By.Name("name"));
+            skillTextbox.Clear();
+            skillTextbox.SendKeys(Skills);
 
             //Choose skill level from dropdown
             SelectElement levelDropDown = new SelectElement(driver.FindElement(By.Name("level")));
@@ -64,12 +63,11 @@ namespace MARSProject.Pages
             updateButton.Click();
 
             Thread.Sleep(3000);
-            //WaitHelpers.WaitToBeClickable(driver, 5, "XPath", "//input[@value='Update']");
 
         }
 
 
-        public void deleteSkills(IWebDriver driver)
+        public void deleteSkills()
         {
             //Go to skills tab and click on it
             IWebElement skillsTab = driver.FindElement(By.LinkText("Skills"));
@@ -80,12 +78,10 @@ namespace MARSProject.Pages
             deleteButton.Click();
 
             Thread.Sleep(3000);
-
-
         }
 
 
-        public void validatingSkills(IWebDriver driver)
+        public void validatingSkills()
         {
             //Go to skills tab and click on it
             IWebElement skillsTab = driver.FindElement(By.LinkText("Skills"));
@@ -95,7 +91,7 @@ namespace MARSProject.Pages
             IWebElement addNewButton = driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/thead[1]/tr[1]/th[3]/div[1]"));
             addNewButton.Click();
 
-            //Identify add skill button and input null values
+            //Identify add skill button and input as empty
             IWebElement addSkillButton = driver.FindElement(By.Name("name"));
             addSkillButton.SendKeys(String.Empty);
 
@@ -105,7 +101,7 @@ namespace MARSProject.Pages
 
         }
 
-        public string getErrorMessage(IWebDriver driver)
+        public string getErrorMessage()
         {
             //verifying error message is displayed or not
             IWebElement validatingErrorMessage = driver.FindElement(By.XPath("//div[contains(text(),'Please enter skill and experience level')]"));
