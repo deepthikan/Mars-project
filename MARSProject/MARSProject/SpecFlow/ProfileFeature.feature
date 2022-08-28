@@ -1,5 +1,4 @@
 ﻿Feature: ProfileFeature
-
 As a Seller
 I want the feature to add my Profile Details
 So that
@@ -34,7 +33,7 @@ Scenario:03 Seller is able to delete Skills details.
 
 Scenario:04 Verify validation error for Skills tab
 	Given I left Skills field as blank
-	Then error message should be displayed 
+	Then error message should be displayed
 
 Scenario Outline:05 Seller is able to add Education details.
 	
@@ -67,17 +66,16 @@ Scenario Outline:09 Seller is able to add the Certifications details.
 	
 	Given I add new '<Certifications>','<CertificateFrom>' and '<Year>' to profile
 	Then The '<Certifications>','<CertificateFrom>' and '<Year>'details should be added successfully
-
 	Examples: 
 	| Certifications   | CertificateFrom | Year |
 	| Istqb Foundation | ISTQB           | 2020 |
 	| Baking Basics    | Bake Goods      | 2019 |
 
+
 Scenario Outline:10 seller is able to edit the Certifications details.
 	
 	Given I edit existing '<Certifications>','<CertificateFrom>' and '<Year>' to profile
 	Then '<Certifications>','<CertificateFrom>' and '<Year>' details should be updated successfully
-
 	Examples: 
 	| Certifications | CertificateFrom | Year |
 	| Istqb Advance  | ISTQB           | 2022 |
@@ -89,77 +87,6 @@ Scenario:11 Seller is able to delete Certifications details.
 Scenario:12 Verify validation error for Certifications tab.
 	Given I left Certifications field as blank
 	Then Following error message should be displayed
-
-#-------------------------------------------------------------------------------------------------------------
-#Scenario:Seller is able to add description on profile.
-#	Given I provide the description as "My name is Jade i love hiking and baking during my leisure time"
-#	Then The description details should be added successfully
-#
-#Scenario:Seller is able to edit description on the Profile.
-#	Given I edit the description as "My name is Jade Rose i love hiking and baking during my leisure time"
-#	Then The description details should be added successfully
-#
-#Scenario:Seller is able to delete description on the Profile.
-#	Given I delete the description 
-#	Then Error message "Please, a description is required" should be displayed
-#
-#Scenario Outline:Verify validation error for Description field 
-#	Given I try to enter special characters or left it as blank
-#	Then Following error messages should be displayed
-#
-#	Examples: 
-#	| Description | Error message                                |
-#	| @$&         | First character can only be digit or letters |
-#	|             | "Please, a description is required"          |
-#
-#	
-#Scenario Outline:Seller is able to add Languages on the Profile 
-#	
-#	Given I add new '<Languages>' and '<Level>' on profile
-#	Then The'<Languages>' details should be added successfully
-#	
-#	Examples: 
-#	| Languages | Level            |
-#	| French    | Conversational   |
-#	| English   | Native/Bilingual |
-#
-#Scenario Outline:Seller is able to edit Languages on the Profile
-#	
-#	Given I edit existing '<Languages>' and '<Level>' on profile
-#	Then The'<Languages>' should be updated successfully
-#	
-#	Examples: 
-#	| Languages | Level |
-#	| Spanish   | Basic |
-#
-#Scenario:Seller is able to delete Languages on the Profile
-#	Given I delete existing languages on profile
-#	Then The languages should be deleted successfully
-#
-#
-#Scenario: Verify validation error for Languages tab
-#	Given I left languages field as blank
-#	Then Following error message should be displayed "Please enter language and level"
-#
-
-#Scenario Outline: Seller is able to add the Availability on profile 
-#	
-#	Given I add '<Availability>','<Hours>' and '<Earn Target>' to profile details
-#	Then '<Availability>','<Hours>' and '<Earn Target>' should be added successfully
-#
-#	Examples: 
-#	| Availability | Hours                    | Earn Target                      |
-#	| Part Time    | Less than 30hours a week | Between $500 and $1000 per month |
-#
-#
-#Scenario Outline: Seller is able to edit the Availability on profile 
-#	
-#	Given I edit '<Availability>','<Hours>' and '<Earn Target>' to profile details
-#	Then '<Availability>','<Hours>' and '<Earn Target>' should be added successfully
-#
-#	Examples: 
-#	| Availability | Hours                    | Earn Target               |
-#	| Full Time    | More than 30hours a week | More than $1000 per month |
 
 
 

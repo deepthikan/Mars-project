@@ -10,10 +10,18 @@ namespace MARSProject.StepDefinition
     [Binding]
     public class ProfileFeatureStepDefinitions : CommonDriver
     {
-        SignInandProfilePage SignInandProfilePageObj = new SignInandProfilePage();
-        Skills skillsObj = new Skills();
-        Education educationObj = new Education();
-        Certifications certificationsObj = new Certifications();
+        SignInandProfilePage SignInandProfilePageObj;
+        Skills skillsObj;
+        Education educationObj;
+        Certifications certificationsObj;
+
+        public ProfileFeatureStepDefinitions()
+        {
+            SignInandProfilePageObj = new SignInandProfilePage();
+            skillsObj = new Skills();
+            educationObj = new Education();
+            certificationsObj = new Certifications();
+        }
 
         [Given(@"I logged in to Mars portal successfully")]
         public void GivenSellerLoggedInToMarsPortalSuccessfully()
@@ -59,7 +67,6 @@ namespace MARSProject.StepDefinition
         {
             string editSkill = skillsObj.getSkillsTableDetails();
             string editLevel = skillsObj.getSkillsTableDetails();
-
 
             Assert.That(editSkill.Contains(p0), "Edited skill and Expected skill do not match");
             Assert.That(editLevel.Contains(p1), "Edited skill and Expected skill do not match");
