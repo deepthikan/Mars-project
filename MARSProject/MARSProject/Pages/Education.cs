@@ -1,131 +1,121 @@
 ﻿using MARSProject.Utilities;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MARSProject.Pages
 {
     public class Education : CommonDriver
     {
+
+        //Education page objects
+        IWebElement educationTab => driver.FindElement(By.LinkText("Education"));
+        IWebElement addNewButton => driver.FindElement(By.XPath("//thead/tr[1]/th[6]/div[1]"));
+        SelectElement countryDropDown => new SelectElement(driver.FindElement(By.Name("country")));
+        SelectElement titleDropdown => new SelectElement(driver.FindElement(By.Name("title")));
+        IWebElement degreeTextbox => driver.FindElement(By.Name("degree"));
+        SelectElement yearDropdown => new SelectElement(driver.FindElement(By.Name("yearOfGraduation")));
+        IWebElement addButton => driver.FindElement(By.XPath("//input[@value='Add']"));
+        IWebElement newEducation => driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]/table[1]"));
+        IWebElement editButton => driver.FindElement(By.XPath("//tbody/tr[1]/td[6]/span[1]/i[1]"));
+        IWebElement collegeNameTextbox => driver.FindElement(By.Name("instituteName"));
+        IWebElement updateButton => driver.FindElement(By.XPath("//input[@value='Update']"));
+        IWebElement deleteButton => driver.FindElement(By.XPath("//tbody/tr[1]/td[6]/span[2]/i[1]"));
+        IWebElement validatingEduErrorMessage =>driver.FindElement(By.XPath("//div[contains(text(),'Please enter all the fields')]"));
+        
+        private static string SUCCESSMESSAGE = "//div[@class='ns-box-inner']";
         public void addEducation(string CollegeName, string Country, string Title, string Degree, string Year)
         {
             //Identify education tab and click on it
-            IWebElement educationTab = driver.FindElement(By.LinkText("Education"));
             educationTab.Click();
 
             //Identify add new button and click on it
-            IWebElement addNewButton = driver.FindElement(By.XPath("//thead/tr[1]/th[6]/div[1]"));
             addNewButton.Click();
 
             // Identify college name textbox and enter valid data
-            IWebElement addCollegeName = driver.FindElement(By.Name("instituteName"));
-            addCollegeName.SendKeys(CollegeName);
+            collegeNameTextbox.SendKeys(CollegeName);
 
             // Identify country dropdown and send select valid country
-            SelectElement countryDropDown = new SelectElement(driver.FindElement(By.Name("country")));
             countryDropDown.SelectByValue(Country);
 
             // Identify title dropdown and select valid title
-            SelectElement titleDropdown = new SelectElement(driver.FindElement(By.Name("title")));
             titleDropdown.SelectByValue(Title);
 
             // Identify degree textbox and enter valid data
-            IWebElement degreeTextbox = driver.FindElement(By.Name("degree"));
             degreeTextbox.SendKeys(Degree);
 
             // Identify year dropdown and select valid year
-            SelectElement yearDropdown = new SelectElement(driver.FindElement(By.Name("yearOfGraduation")));
             yearDropdown.SelectByValue(Year);
 
             // Identify add button and click on it
-            IWebElement addButton = driver.FindElement(By.XPath("//input[@value='Add']"));
             addButton.Click();
-            Thread.Sleep(4000);
         }
 
         public string getEducationTableDetails()
         {
-            IWebElement newEducation = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[4]/div[1]/div[2]/div[1]/table[1]"));
+            WaitHelpers.WaitTobevisible(driver, 10, "XPath", SUCCESSMESSAGE);
             return newEducation.GetAttribute("outerText").ToString();
         }
 
         public void editEducation(string CollegeName, string Country, string Title, string Degree, string Year)
         {
             //click education tab
-            IWebElement educationTab = driver.FindElement(By.LinkText("Education"));
             educationTab.Click();
 
             //Identify edit button and click on it
-            IWebElement editButton = driver.FindElement(By.XPath("//tbody/tr[1]/td[6]/span[1]/i[1]"));
             editButton.Click();
 
             // edit college name textbox
-            IWebElement collegeNameTextbox = driver.FindElement(By.Name("instituteName"));
             collegeNameTextbox.Clear();
             collegeNameTextbox.SendKeys(CollegeName);
 
             // edit country dropdown
-            SelectElement countryDropDown = new SelectElement(driver.FindElement(By.Name("country")));
             countryDropDown.SelectByValue(Country);
 
             // edit title dropdown 
-            SelectElement titleDropdown = new SelectElement(driver.FindElement(By.Name("title")));
             titleDropdown.SelectByValue(Title);
 
             // edit degree textbox
-            IWebElement degreeTextbox = driver.FindElement(By.Name("degree"));
             degreeTextbox.Clear();
             degreeTextbox.SendKeys(Degree);
 
             // edit year dropdown 
-            SelectElement yearDropdown = new SelectElement(driver.FindElement(By.Name("yearOfGraduation")));
             yearDropdown.SelectByValue(Year);
 
             // Identify Update button and click on it
-            IWebElement updateButton = driver.FindElement(By.XPath("//input[@value='Update']"));
             updateButton.Click();
-            Thread.Sleep(4000);
+            //Thread.Sleep(4000);
+            WaitHelpers.WaitTobevisible(driver, 10, "XPath", SUCCESSMESSAGE);
         }
 
         public void deleteEducation()
         {
             //click education tab
-            IWebElement educationTab = driver.FindElement(By.LinkText("Education"));
             educationTab.Click();
 
             // Identify delete button click on it
-            IWebElement deleteEducation = driver.FindElement(By.XPath("//tbody/tr[1]/td[6]/span[2]/i[1]"));
-            deleteEducation.Click();
-            Thread.Sleep(3000);
+            deleteButton.Click();
+            WaitHelpers.WaitTobevisible(driver, 10, "XPath", SUCCESSMESSAGE);
 
         }
 
         public void validatingEducation()
         {
             //Go to education tab and click on it
-            IWebElement educationTab = driver.FindElement(By.LinkText("Education"));
             educationTab.Click();
 
             //Identify add new button and click on it
-            IWebElement addNewButton = driver.FindElement(By.XPath("//thead/tr[1]/th[6]/div[1]"));
             addNewButton.Click();
 
             //Identify college name by entering null values
-            IWebElement collegeTextbox = driver.FindElement(By.Name("instituteName"));
-            collegeTextbox.SendKeys(String.Empty);
+            collegeNameTextbox.SendKeys(String.Empty);
 
             //Identify add button 
-            IWebElement addButton = driver.FindElement(By.XPath("//input[@value='Add']"));
             addButton.Click();
 
         }
         public string getEduErrorMessage()
         {
             //verifying valid error message is displayed or not
-            IWebElement validatingEduErrorMessage = driver.FindElement(By.XPath("//div[contains(text(),'Please enter all the fields')]"));
             return validatingEduErrorMessage.Text;
         }
 

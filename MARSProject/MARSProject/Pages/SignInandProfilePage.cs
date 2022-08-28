@@ -8,6 +8,15 @@ namespace MARSProject.Pages
 {
     public class SignInandProfilePage: CommonDriver
     {
+        //Sigin and Profile page objects
+        IWebElement signInButton => driver.FindElement(By.LinkText("Sign In"));
+        IWebElement emailAddressTextBox => driver.FindElement(By.Name("email"));
+        IWebElement passwordTextBox => driver.FindElement(By.Name("password"));
+        IWebElement loginButton => driver.FindElement(By.XPath("//button[contains(text(),'Login')]"));
+        IWebElement profileTab => driver.FindElement(By.LinkText("Profile"));
+
+
+
         public void signInActions()
         {
             //Launch Mars portal
@@ -19,21 +28,19 @@ namespace MARSProject.Pages
             {
 
                 //Identify sign in button and click on it
-                IWebElement signInButton = driver.FindElement(By.LinkText("Sign In"));
+               
                 signInButton.Click();
 
                 //Identify email address textbox enter valid email
-                IWebElement emailAddressTextBox = driver.FindElement(By.Name("email"));
                 emailAddressTextBox.SendKeys("deepthikanchenadam@gmail.com");
 
                 //Identify password textbox enter valid password
-                IWebElement passwordTextBox = driver.FindElement(By.Name("password"));
+                
                 passwordTextBox.SendKeys("123123");
 
                 WaitHelpers.WaitToBeClickable(driver, 5, "XPath", "//button[contains(text(),'Login')]");
 
                 //Identify login button and click on it
-                IWebElement loginButton = driver.FindElement(By.XPath("//button[contains(text(),'Login')]"));
                 loginButton.Click();
 
             }
@@ -46,7 +53,6 @@ namespace MARSProject.Pages
         public void goToProfilePage()
         {
             // Go to homepage click on profile tab 
-            IWebElement profileTab = driver.FindElement(By.LinkText("Profile"));
             profileTab.Click();
 
         }
